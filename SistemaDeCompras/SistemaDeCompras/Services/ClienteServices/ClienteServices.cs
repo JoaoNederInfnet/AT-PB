@@ -23,8 +23,9 @@ public class ClienteServices : IClienteServices
     //•ETAPAS•//
     //1) Validação dos dados
     //A) Descobrindo se o email de entrada já está cadastrado no sistema
-    bool emailCadastradoNoSistema = await _context.Clientes.AnyAsync(c => c.ClienteEmail == email);
+    bool emailCadastradoNoSistema = await _context.Clientes.AnyAsync(c => c.Email == email);
 
+    //Caso esteja
     if (emailCadastradoNoSistema)
     {
       throw new InvalidOperationException("O e-mail informado já está cadastrado!");
@@ -49,9 +50,34 @@ public class ClienteServices : IClienteServices
   
   //#2) Para login do cliente
   public async Task<Cliente?> RealizarLoginClienteAsync(string email, string senha)
-  {
-    throw new NotImplementedException();
-  }
+   {
+        throw new NotImplementedException();
+  //   //•ETAPAS•//
+  //   //1) Validação dos dados
+  //   //A) Descobrindo se o email de entrada já está cadastrado no sistema
+  //   var emailCadastradoNoSistema = await _context.Clientes.FirstOrDefaultAsync(c => c.Email == email);
+  //   
+  //   //Caso não esteja
+  //   if (emailCadastradoNoSistema == null)
+  //   {
+  //     throw new InvalidOperationException("O e-mail informado não está cadastrado!");
+  //   }
+  //   //----------------------------------//--------------------------------
+  //   //B) Descobrindo se a senha está correta para o email cadastrado
+  //   var cliente = emailCadastradoNoSistema;
+  //
+  //   string senhaCorrespondente = cliente.Password;
+  //
+  //   //Caso não esteja
+  //   if (senha != senhaCorrespondente)
+  //   {
+  //     throw new InvalidOperationException("A senha está incorreta!");
+  //   }
+  //   //--------------------------------------------/------------------------------------------
+  //   
+  //   //3) Retornando o cliente cadastrado no sistema
+  //   return cliente;
+   }
   //--------------------------------------------/------------------------------------------
   
   //#3) Para retornar todos os clientes registrados no sistema

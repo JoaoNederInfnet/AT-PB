@@ -7,7 +7,7 @@ using SistemaDeCompras.Services.ClienteServices;
 
 namespace SistemaDeCompras.Pages.ClientePages;
 
-public class ClienteCreate : PageModel
+public class Create : PageModel
 {
     /* ------------------------------- CLASSE DE ENTRADA ------------------------------- */
     public class InputModel
@@ -41,7 +41,7 @@ public class ClienteCreate : PageModel
     //----------------------------------//--------------------------------
     
     //2) Criando um construtor para injetar o validador registrado na linha () do Program.cs
-    public ClienteCreate(IClienteServices clienteServices)
+    public Create(IClienteServices clienteServices)
     {
         _clienteServices = clienteServices;
     }
