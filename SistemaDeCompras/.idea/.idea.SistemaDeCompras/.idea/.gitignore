@@ -11,3 +11,43 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+Usuarios.txt  
+# Compilados
+bin/
+obj/
+
+# Configurações do Visual Studio
+.vs/
+*.user
+*.suo
+
+# Cache e temporários
+*.dbmdl
+*.log
+*.tlog
+*.tmp
+*.cache
+*.bak
+
+# Pacotes NuGet
+*.nupkg
+packages/
+*.snupkg
+
+# Publicações locais
+publish/
+out/
+
+# Arquivos do Rider/Resharper
+.idea/
+*.DotSettings.user
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Secrets do ASP.NET Core (não subir pro git)
+secrets.json
+
+# Configs locais
+appsettings.Development.json
