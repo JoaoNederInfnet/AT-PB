@@ -30,15 +30,19 @@ public class SistemaDeComprasDbContext : DbContext
    //--------------------------------------------/------------------------------------------
    
    //5) Gestores
+   public DbSet<Gestor> Gestores { get; set; }
    //--------------------------------------------/------------------------------------------
    
    //6) Adms de Pedidos
+   public DbSet<AdmPedidos> AdmsPedidos { get; set; }
    //--------------------------------------------/------------------------------------------
    
    //7) Adms de Produtos
    //--------------------------------------------/------------------------------------------
+   public DbSet<AdmProdutos> AdmsProdutos { get; set; }
    
    //8) Adms de Perfis
+   public DbSet<AdmPerfis> AdmsPerfis { get; set; }
    //========================================================
    
    /*/ ------------------------------- MÉTODOS ------------------------------- /*/
