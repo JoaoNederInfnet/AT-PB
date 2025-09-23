@@ -1,0 +1,31 @@
+@page
+@model SistemaDeCompras.Pages.Adm.Pedidos.Create
+@{
+    ViewData["Title"] = "Cadastro de Administrador de Pedidos";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="Input.Nome" class="form-label">O nome de cadastro: </label>
+                <input asp-for="Input.Nome" class="form-control"/>
+                <span asp-validation-for="Input.Nome" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Input.Senha" class="form-label">A senha de cadastro: </label>
+                <input asp-for="Input.Senha" class="form-control"/>
+                <span asp-validation-for="Input.Senha" class="text-danger"></span>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+                
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

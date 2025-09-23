@@ -3,23 +3,23 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SistemaDeCompras.Models;
-using SistemaDeCompras.Services.ClienteServices;
+using SistemaDeCompras.Services.AdmPedidosServices;
 
-namespace SistemaDeCompras.Pages.ClientePages;
+namespace SistemaDeCompras.Pages.Adm.Pedidos;
 
 public class Create : PageModel
 {
     /* ------------------------------- CLASSE DE ENTRADA ------------------------------- */
-    public class InputModel
+    public class InputModel  
     {
-        //1) Email
-        [Required(ErrorMessage = "O e-mail é obrigatório!")]
-        public string? ClienteEmail { get; set; }
+        //1) Nome
+        [Required(ErrorMessage = "O nome é obrigatório!")]
+        public string? Nome { get; set; }
         //--------------------------------------------/------------------------------------------
     
         //2) Senha
         [Required(ErrorMessage = "A senha é obrigatória!")]
-        public string? ClientePassword { get; set; }
+        public string? Senha { get; set; }
         //--------------------------------------------/------------------------------------------
     }
     //========================================================
@@ -33,23 +33,23 @@ public class Create : PageModel
     /* ------------------------------- INJEÇÕES DE DEPENDÊNCIA ------------------------------- */
     //1) Criando os campo que usarei para injetar as dependências dentro da PageModel
     //A) Para conseguir usar o service
-    private readonly IClienteServices _clienteServices; //readonly para definir esse campo apenas no construtor
+    private readonly IServices _admPedidosServices; //readonly para definir esse campo apenas no construtor
     //--------------------------------------------/------------------------------------------
     
     //B) Para conseguir usar minhas classes FluentValidation
      //readonly para definir esse campo apenas no construtor
     //----------------------------------//--------------------------------
     
-    //2) Criando um construtor para injetar o validador registrado na linha () do Program.cs
-    public Create(IClienteServices clienteServices)
+    //2) Criando um construtor para injetar a classe service e o validador registrado na linha () do Program.cs
+    public Create(IServices admPedidosServices)
     {
-        _clienteServices = clienteServices;
+        _admPedidosServices = admPedidosServices;
     }
     //========================================================
     
     /* ------------------------------- HANDLERS DE REQUISIÇÃO ------------------------------- */
     //# GET -> Preparação para primeira exibição da página
-    //Inicializando a lista Inputs com 5 itens vazios, para gerar o HTML correto com 5 objetos a serem preenchidos
+    //Inicializando 
     public void OnGet() 
     {
         new InputModel();
@@ -89,14 +89,14 @@ public class Create : PageModel
         //1) Tentando armazenar e redirecionando para página de sucesso
         try
         {
-            await _clienteServices.RealizarCadastroClienteAsync(Input.ClienteEmail, Input.ClientePassword);
-            return RedirectToPage("/CadastroSucesso");
+            await _admPedidosServices.RealizarCadastroAdmPedidosAsync(Input.Nome, Input.Senha);
+            return RedirectToPage("/CadastroSucesso"); //TODO
         }
         //2) Exibindo erro no formulário caso os dados não passem nas validações das lógicas de négocio nos Services:
         //A) o e-mail não seja válido
         catch (InvalidOperationException ex)
         {
-            ModelState.AddModelError("Input.ClienteEmail", ex.Message);
+            ModelState.AddModelError("Input.Nome", ex.Message);
             return Page();
         }
         //-------------------------///-----------------------

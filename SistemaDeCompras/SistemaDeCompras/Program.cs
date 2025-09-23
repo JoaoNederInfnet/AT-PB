@@ -1,6 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using SistemaDeCompras.Models;
 using SistemaDeCompras.DAL;
+using SistemaDeCompras.Services.Adm.Pedidos;
+using SistemaDeCompras.Services.Adm.Perfis;
+using SistemaDeCompras.Services.Adm.Produtos;
 using SistemaDeCompras.Services.ClienteServices;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<IClienteServices, ClienteServices>();//
+builder.Services.AddScoped<IAdmProdutosServices, AdmProdutosServices>();//
+builder.Services.AddScoped<IAdmPedidosServices, AdmPedidosServices>();//
+builder.Services.AddScoped<IAdmPerfisServices, AdmPerfisServices>();//
 
 builder.Services.AddDbContext<SistemaDeComprasDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));//

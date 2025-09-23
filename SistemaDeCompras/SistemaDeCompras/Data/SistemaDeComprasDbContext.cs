@@ -6,6 +6,7 @@ namespace SistemaDeCompras.DAL;
 
 public class SistemaDeComprasDbContext : DbContext
 {
+   //TODO NOVA MIGRATION PARA O GESTOR E OS ADMINISTRADORES
    public SistemaDeComprasDbContext(DbContextOptions<SistemaDeComprasDbContext> options) : base(options)
    {
       
@@ -38,8 +39,8 @@ public class SistemaDeComprasDbContext : DbContext
    //--------------------------------------------/------------------------------------------
    
    //7) Adms de Produtos
-   //--------------------------------------------/------------------------------------------
    public DbSet<AdmProdutos> AdmsProdutos { get; set; }
+   //--------------------------------------------/------------------------------------------
    
    //8) Adms de Perfis
    public DbSet<AdmPerfis> AdmsPerfis { get; set; }
