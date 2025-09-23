@@ -18,5 +18,4 @@ public interface IClienteServices
   // # Usados por outras entidades #
   //1)
   //--------------------------------------------/------------------------------------------
-  
 }

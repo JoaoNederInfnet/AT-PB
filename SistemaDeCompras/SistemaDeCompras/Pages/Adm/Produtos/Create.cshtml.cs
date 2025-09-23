@@ -3,7 +3,7 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SistemaDeCompras.Models;
-using SistemaDeCompras.Services.AdmProdutosServices;
+using SistemaDeCompras.Services.Adm.Produtos;
 
 namespace SistemaDeCompras.Pages.Adm.Produtos;
 
@@ -33,7 +33,7 @@ public class Create : PageModel
     /* ------------------------------- INJEÇÕES DE DEPENDÊNCIA ------------------------------- */
     //1) Criando os campo que usarei para injetar as dependências dentro da PageModel
     //A) Para conseguir usar o service
-    private readonly IServices _admProdutosServices; //readonly para definir esse campo apenas no construtor
+    private readonly IAdmProdutosServices _admProdutosServices; //readonly para definir esse campo apenas no construtor
     //--------------------------------------------/------------------------------------------
     
     //B) Para conseguir usar minhas classes FluentValidation
@@ -41,7 +41,7 @@ public class Create : PageModel
     //----------------------------------//--------------------------------
     
     //2) Criando um construtor para injetar a classe service e o validador registrado na linha () do Program.cs
-    public Create(IServices admProdutosServices)
+    public Create(IAdmProdutosServices admProdutosServices)
     {
         _admProdutosServices = admProdutosServices;
     }

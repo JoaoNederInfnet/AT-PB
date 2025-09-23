@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SistemaDeCompras.DAL;
 
@@ -10,9 +11,11 @@ using SistemaDeCompras.DAL;
 namespace SistemaDeCompras.Migrations
 {
     [DbContext(typeof(SistemaDeComprasDbContext))]
-    partial class SistemaDeComprasDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250923222205_AdmsEGestor")]
+    partial class AdmsEGestor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.9");
