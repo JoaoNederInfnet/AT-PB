@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SistemaDeCompras.Services.ClienteServices;
 
-namespace SistemaDeCompras.Pages.Cliente;
+namespace SistemaDeCompras.Pages.Account;
 
-public class Create : PageModel
+public class LoginCliente : PageModel
 {
     /* ------------------------------- CLASSE DE ENTRADA ------------------------------- */
     public class InputModel 
@@ -39,7 +39,7 @@ public class Create : PageModel
     //----------------------------------//--------------------------------
     
     //2) Criando um construtor para injetar a classe service e o validador registrado na linha () do Program.cs
-    public Create(IClienteServices clienteServices)
+    public LoginCliente(IClienteServices clienteServices)
     {
         _clienteServices = clienteServices;
     }
@@ -83,12 +83,12 @@ public class Create : PageModel
         
         
         /* Para formulário preenchido corretamente */
-        //# Preparando os dados para o armazenamento no sistema
+        //# Preparando os dados para transferência para a home page
         //1) Tentando armazenar e redirecionando para página de sucesso
         try
         {
-            await _clienteServices.RealizarCadastroClienteAsync(Input.Email, Input.Senha);
-            return RedirectToPage("/Account/LoginCliente");
+            await _clienteServices.RealizarLoginClienteAsync(Input.Email, Input.Senha);
+            return RedirectToPage("/HomePageCliente"); //TODO
         }
         //2) Exibindo erro no formulário caso os dados não passem nas validações das lógicas de négocio nos Services:
         //A) o e-mail não seja válido
