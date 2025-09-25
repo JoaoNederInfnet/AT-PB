@@ -25,6 +25,11 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Services\CartaoDeCredito\" />
+      <Folder Include="Services\Endereco\" />
+      <Folder Include="Services\Gestor\" />
+      <Folder Include="Services\Pedido\" />
+      <Folder Include="Services\Produto\" />
       <Folder Include="Validations\" />
     </ItemGroup>
 

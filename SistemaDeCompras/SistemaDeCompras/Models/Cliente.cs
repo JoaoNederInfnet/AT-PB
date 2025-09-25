@@ -24,6 +24,10 @@ public class Cliente : Model
     
     //2) O cartão de crédito pertencente
     public CartaoDeCredito? CartaoDeCredito { get; set; }
+    //--------------------------------------------/------------------------------------------
+    
+    //3) Os pedidos pertencentes
+    public ICollection<Pedido>? Pedido { get; set; }
     //========================================================
     
     /*/ ------------------------------- CONSTRUTORES ------------------------------- /*/

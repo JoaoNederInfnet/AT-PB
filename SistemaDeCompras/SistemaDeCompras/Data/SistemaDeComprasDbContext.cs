@@ -44,6 +44,10 @@ public class SistemaDeComprasDbContext : DbContext
    
    //8) Adms de Perfis
    public DbSet<AdmPerfis> AdmsPerfis { get; set; }
+   //--------------------------------------------/------------------------------------------
+   
+   //9) Adms de Perfis
+   public DbSet<Pedido> Pedidos { get; set; }
    //========================================================
    
    /*/ ------------------------------- MÉTODOS ------------------------------- /*/
