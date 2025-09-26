@@ -48,7 +48,7 @@ public class ClienteServices : IClienteServices
   } 
   //--------------------------------------------/------------------------------------------
   
-  //#2) Para login do cliente
+   //#2)Para login do cliente
   public async Task<Cliente?> RealizarLoginClienteAsync(string email, string senha)
    {
        // throw new NotImplementedException();
@@ -80,8 +80,24 @@ public class ClienteServices : IClienteServices
    }
   //--------------------------------------------/------------------------------------------
   
-  //#3) Para retornar todos os clientes registrados no sistema
-  public async Task<List<Cliente>> GetAllAsync()
+  
+  //#3) Para atualizar os dados do cliente
+  public async Task<Cliente?> AtualizarDadosClienteAsync(string email, string senha)
+  {
+    return null;
+  }
+  //--------------------------------------------#--------------------------------------------
+  
+  // # Usados por outras entidades #
+  //#1) Para deletar um cliente
+  public async Task<Cliente?> DeletarClienteAsync(long clienteId)
+  {
+    return null;
+  }
+  //--------------------------------------------/------------------------------------------
+  
+  //#2) Para retornar todos os clientes registrados no sistema
+  public async Task<List<Cliente>> ReceberListaClientesAsync()
   {
     return await _context.Clientes
       .ToListAsync();

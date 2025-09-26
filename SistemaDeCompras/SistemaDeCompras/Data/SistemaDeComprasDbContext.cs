@@ -6,7 +6,6 @@ namespace SistemaDeCompras.DAL;
 
 public class SistemaDeComprasDbContext : DbContext
 {
-   //TODO NOVA MIGRATION PARA O GESTOR E OS ADMINISTRADORES
    public SistemaDeComprasDbContext(DbContextOptions<SistemaDeComprasDbContext> options) : base(options)
    {
       
@@ -46,7 +45,7 @@ public class SistemaDeComprasDbContext : DbContext
    public DbSet<AdmPerfis> AdmsPerfis { get; set; }
    //--------------------------------------------/------------------------------------------
    
-   //9) Adms de Perfis
+   //9) Pedidos
    public DbSet<Pedido> Pedidos { get; set; }
    //========================================================
    
@@ -73,8 +72,7 @@ public class SistemaDeComprasDbContext : DbContext
          
          abstractModelPai.AtualizadoEm = DateTime.UtcNow;
 
-         // Se a entidade está sendo ADICIONADA (um novo registro),
-         // define também a data de criação.
+         
          if (dado.State == EntityState.Added)
          {
             abstractModelPai.CriadoEm = DateTime.UtcNow;
